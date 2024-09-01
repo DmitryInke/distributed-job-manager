@@ -24,18 +24,12 @@
         "previewTargetName": "preview"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
     {
       "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      },
+      "options": { "targetName": "test" },
       "exclude": ["apps/distributed-job-manager-auth-e2e/**/*"]
     }
-  ]
+  ],
+  "nxCloudAccessToken": "ODJkMmQzMzEtZjRhNy00N2EwLThkOWItZmVhNWZmMDZjM2U5fHJlYWQtd3JpdGU="
 }
