@@ -1,0 +1,26 @@
+{
+  "name": "distributed-job-manager-auth",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/distributed-job-manager-auth/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "distributed-job-manager-auth:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "distributed-job-manager-auth:build:development"
+        },
+        "production": {
+          "buildTarget": "distributed-job-manager-auth:build:production"
+        }
+      }
+    }
+  }
+}
