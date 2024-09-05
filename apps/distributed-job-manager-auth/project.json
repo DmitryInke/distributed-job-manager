@@ -21,6 +21,18 @@
           "buildTarget": "distributed-job-manager-auth:build:production"
         }
       }
+    },
+    "generate-types": {
+      "command": "prisma generate",
+      "options": {
+        "cwd": "apps/distributed-job-manager-auth"
+      }
+    },
+    "migrate-prisma": {
+      "command": "prisma migrate dev",
+      "options": {
+        "cwd": "apps/distributed-job-manager-auth"
+      }
     }
   }
 }
