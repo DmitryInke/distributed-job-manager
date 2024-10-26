@@ -17,7 +17,7 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "distributed-job-manager-auth:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": true
       },
       "configurations": {
         "development": {
