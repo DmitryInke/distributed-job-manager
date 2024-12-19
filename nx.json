@@ -35,7 +35,10 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/distributed-job-manager-auth-e2e/**/*"]
+      "exclude": [
+        "apps/distributed-job-manager-auth-e2e/**/*",
+        "apps/distributed-job-manager-jobs-e2e/**/*"
+      ]
     }
   ]
 }
