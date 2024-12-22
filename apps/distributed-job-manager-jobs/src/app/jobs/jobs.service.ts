@@ -2,12 +2,7 @@ import {
   DiscoveredClassWithMeta,
   DiscoveryService,
 } from '@golevelup/nestjs-discovery';
-import {
-  BadRequestException,
-  Injectable,
-  InternalServerErrorException,
-  OnModuleInit,
-} from '@nestjs/common';
+import { BadRequestException, Injectable, OnModuleInit } from '@nestjs/common';
 import { JOB_METADATA_KEY } from '../decorators/job.decorator';
 import { JobMetadata } from '../interfaces/job-metadata.interface';
 import { AbstractJob } from './abstract.job';
