@@ -37,7 +37,8 @@
       },
       "exclude": [
         "apps/distributed-job-manager-auth-e2e/**/*",
-        "apps/distributed-job-manager-jobs-e2e/**/*"
+        "apps/distributed-job-manager-jobs-e2e/**/*",
+        "apps/distributed-job-manager-executor-e2e/**/*"
       ]
     }
   ],
