@@ -1,0 +1,10 @@
+{
+    "name": "@distributed-job-manager/prisma",
+    "version": "0.0.0",
+    "dependencies": {
+        "prisma": "^6.1.0",
+        "@prisma/client": "^6.1.0"
+    },
+    "devDependencies": {
+    }
+}
