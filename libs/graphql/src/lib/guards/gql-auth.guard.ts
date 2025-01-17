@@ -7,7 +7,7 @@ import {
   OnModuleInit,
 } from '@nestjs/common';
 import {
-  AUTH_PACKAGE_NAME,
+  Packages,
   AUTH_SERVICE_NAME,
   AuthServiceClient,
 } from '@distributed-job-manager/grpc';
@@ -20,7 +20,7 @@ export class GqlAuthGuard implements CanActivate, OnModuleInit {
   private readonly logger = new Logger(GqlAuthGuard.name);
   private authService: AuthServiceClient;
 
-  constructor(@Inject(AUTH_PACKAGE_NAME) private client: ClientGrpc) {}
+  constructor(@Inject(Packages.AUTH) private client: ClientGrpc) {}
 
   onModuleInit() {
     this.authService =

@@ -43,4 +43,6 @@ Thumbs.db
 
 .env
 
+data/*
+apps/jobs/uploads/*
 *.diff
