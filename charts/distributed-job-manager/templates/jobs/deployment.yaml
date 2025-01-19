@@ -15,6 +15,20 @@ spec:
       labels:
         app: jobs
     spec:
+      imagePullSecrets:
+        - name: awsecr-cred
+      initContainers:
+        - name: prisma-migrate
+          image: {{ .Values.jobs.image }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          command: ["sh", "-c"]
+          args:
+            - |
+              npx prisma migrate deploy --schema=apps/jobs/prisma/schema.prisma
+          env: 
+            {{- include "common.env" . | nindent 12 }}
+            - name: DATABASE_URL
+              value: postgresql://postgres:postgres@{{ .Release.Name }}-postgresql.postgresql.svc.cluster.local:5432/jobs
       containers:
         - name: jobs
           image: {{ .Values.jobs.image }}
@@ -30,6 +44,8 @@ spec:
               value: "auth-grpc:{{ .Values.auth.port.grpc }}"
             - name: PORT
               value: "{{ .Values.jobs.port }}"
+            - name: DATABASE_URL
+              value: postgresql://postgres:postgres@{{ .Release.Name }}-postgresql.postgresql.svc.cluster.local:5432/jobs
       volumes:
         - name: uploads-volume
           persistentVolumeClaim:
