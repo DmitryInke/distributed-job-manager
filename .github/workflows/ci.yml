@@ -56,12 +56,23 @@ jobs:
             NAME=$(echo $image | cut -d' ' -f1)
             DOCKERFILE=$(echo $image | cut -d' ' -f2)
 
+            echo "Building and pushing image: $NAME"
+            echo "Using Dockerfile: $DOCKERFILE"
+
             {
               docker build \
                 --tag 061051217118.dkr.ecr.eu-central-1.amazonaws.com/distributed-job-manager/$NAME:latest \
                 -f $DOCKERFILE \
-                . && docker push 061051217118.dkr.ecr.eu-central-1.amazonaws.com/distributed-job-manager/$NAME:latest
+                . || { echo "Build failed for $NAME"; exit 1; }
+
+              echo "Build succeeded for $NAME. Pushing to ECR..."
+              
+              docker push 061051217118.dkr.ecr.eu-central-1.amazonaws.com/distributed-job-manager/$NAME:latest || { echo "Push failed for $NAME"; exit 1; }
+
+              echo "Push succeeded for $NAME"
             } &
           done
 
           wait
+
+          echo "All images have been processed."
