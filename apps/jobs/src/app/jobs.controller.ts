@@ -1,6 +1,5 @@
 import {
   AcknowledgeRequest,
-  AcknowledgeResponse,
   JobsServiceController,
   JobsServiceControllerMethods,
 } from '@distributed-job-manager/grpc';
