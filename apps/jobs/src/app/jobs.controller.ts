@@ -4,7 +4,6 @@ import {
   JobsServiceControllerMethods,
 } from '@distributed-job-manager/grpc';
 import { Controller } from '@nestjs/common';
-import { Observable } from 'rxjs';
 import { JobsService } from './jobs.service';
 
 @Controller()
